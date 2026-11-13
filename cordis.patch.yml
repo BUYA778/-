@@ -1,0 +1,64 @@
+# DSH Profile Cordis 装配补丁（可由可视面板或 scripts/setup-dsh.ps1 生成）
+plugins:
+  mianmian:
+    package: dsh-plugin-mianmian
+    enabled: true
+    config:
+      # 唯一绑定主人 QQ 号（非该账号发来的消息在入口直接丢弃）
+      ownerQQ: ""
+      timeZone: "Asia/Shanghai"
+      characterId: "mianmian"
+      # DSH 模型与思考强度调度（仅调用 DSH 已配模型，不保存任何 API Key）
+      model:
+        provider: "custom"
+        chatModel: "dsh:default"
+        maintenanceModel: "dsh:default"
+        followDshDefault: true
+        dshProfileDir: ""
+        reasoningEffort: "low"
+        thinkingBudgetTokens: 1024
+        temperature: 0.85
+        autoDowngradeCasualChat: true
+      # SnowLuma QQ 通道
+      snowluma:
+        wsUrl: "ws://127.0.0.1:3001"
+        httpUrl: "http://127.0.0.1:3000"
+        token: ""
+      # 省 Token 上下文压缩
+      context:
+        maxTokensBeforeCompact: 48000
+        recentTurnsKeep: 24
+        offPeakStart: "01:00"
+        offPeakEnd: "07:00"
+      # 三层融合记忆配额
+      memory:
+        selfCapChars: 1500
+        narrativeMaxChars: 2500
+        minAnchorImportance: 65
+        autoCompactRatio: 0.9
+        refreshIntervalMinutes: 360
+      # 在线语音 TTS（无本地依赖）
+      voice:
+        enabled: false
+        onlineEndpoint: ""
+        apiKey: ""
+        voiceId: "mianmian-default"
+        maxChars: 120
+        maxPerMinute: 2
+      # 1v1 主动关怀与早安
+      purpose:
+        enabled: true
+        quietStart: "23:30"
+        quietEnd: "08:30"
+        minIdleMinutes: 180
+        dailyMax: 3
+      morningGreeting:
+        enabled: true
+        clock: "08:30"
+      # 每日预算熔断
+      budget:
+        dailyMaxCny: 5
+        warnAtRatio: 0.8
+      console:
+        host: "127.0.0.1"
+        port: 3210

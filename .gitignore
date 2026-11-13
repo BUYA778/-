@@ -1,0 +1,33 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 构建产物
+dist/
+*.tsbuildinfo
+
+# 运行时数据（本地私有，切勿提交）
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+logs/
+*.log
+photos/
+
+# 本地配置与密钥
+.env
+.env.*
+cordis.local.yml
+cordis.patch.local.yml
+secrets/
+*.key
+*.pem
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
